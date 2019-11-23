@@ -19,6 +19,6 @@ y_test = readtable("y_test.csv");
 %test_lg(X_train, y_train,X_test,y_test)
 
 %train and test Random Forest model
-test_rf(X_train, y_train,X_test,y_test)
+rf = test_rf(X_train, y_train,X_test,y_test)
 
 

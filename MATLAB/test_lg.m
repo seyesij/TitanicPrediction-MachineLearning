@@ -10,7 +10,7 @@ class_error = kfoldLoss(lg_cv)
 accuracy = 1 - class_error
 
 % this is the accurace of our model
-fprintf ("Log Reg cross Validation accuracy: %d \n", round(accuracy,2))
+fprintf ("Log Reg cross Validation accuracy: %0.2f\n", round(accuracy,2))
 
 %
 lg = fitclinear(X_train{:,:}, y_train{:, 'survived'},...
@@ -21,7 +21,7 @@ y_predict_train = predict( lg, X_train{:,:});
 cp_train = classperf(y_train{:,'survived'}');
 classperf(cp_train, y_predict_train);
 % this is the accurace of our model
-fprintf ("Log Reg Train accuracy: %d \n", cp_train.CorrectRate)
+fprintf ("Log Reg Train accuracy: %0.2f \n", cp_train.CorrectRate)
 %----------------------------------------------------------------
 % predict on the test set
 y_predict = predict( lg, X_test{:,:});
@@ -29,7 +29,7 @@ y_predict = predict( lg, X_test{:,:});
 cp = classperf(y_test{:,'survived'}');
 classperf(cp, y_predict);
 % this is the accurace of our model
-fprintf ("Log Reg Test accuracy: %d \n", cp.CorrectRate)
+fprintf ("Log Reg Test accuracy: %0.2f \n", cp.CorrectRate)
 %===================================================================
 
 
@@ -44,6 +44,6 @@ lg_opt = fitclinear(X_train{:,:}, y_train{:, 'survived'},'ObservationsIn', 'rows
 cp = classperf(y_test{:,'survived'}');
 classperf(cp, y_predict);
 % this is the accurace of our model
-fprintf ("Log Reg Hyper Params Optimized  accuracy:%d \n",round(cp.CorrectRate,2))
+fprintf ("Log Reg Hyper Params Optimized  accuracy:%0.2f \n",round(cp.CorrectRate,2))
 
 end
